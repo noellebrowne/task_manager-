@@ -4,10 +4,11 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+
 app.config["MONGO_DBNAME"] = 'task_manager_'
 app.config["MONGO_URI"] = 'mongodb+srv://nellie10:Anything10@cluster0-ryuq4.mongodb.net/task_manager?retryWrites=true'
 
-mongo = PyMongo(app)
+mongo = PyMongo(app) 
 
 @app.route('/')
 @app.route('/get_tasks')
@@ -95,7 +96,4 @@ def add_category():
     return render_template('addcategory.html')
 
 
-if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+   
